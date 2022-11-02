@@ -1,0 +1,138 @@
+// Funcionalidades extras
+
+    public void somarElemLista() {
+        if (Tamanho() == 0) {
+            System.out.println("Lista vazia, impossível somar os elementos");  
+        } else {
+            No atual = inicio;
+            int soma = 0;
+            while (atual != null) {
+                soma = soma + atual.valor;
+                atual = atual.proximo;
+            }
+            System.out.println("A soma dos elementos da lista é: " + soma);
+        }
+    }
+
+    public void somarImpares() {
+            
+        if (Tamanho() == 0) {
+            System.out.println("Lista vazia, impossível somar os elementos");  
+        } else {
+            No atual = inicio;
+            int soma = 0;
+            while (atual != null) {
+                if (atual.valor % 2 == 1) {
+                    soma = soma + atual.valor;
+                }
+                atual = atual.proximo;
+            }
+            System.out.println("A soma dos elementos ímpares da lista é: " + soma);
+        }
+    }
+
+    public void somarImpares(int num) {
+            
+        if (Tamanho() == 0) {
+            System.out.println("Lista vazia, impossível somar os elementos");  
+        } else {
+            No atual = inicio;
+            int soma = 0;
+            while (atual != null) {
+                if (atual.valor % 2 == 1 && atual.valor > num) {
+                    soma = soma + atual.valor;
+                }
+                atual = atual.proximo;
+            }
+            System.out.println("A soma dos elementos ímpares da lista maiores que " + num + " é " + soma);
+        }
+    }
+    
+
+    public void somarPares() {
+            
+        if (Tamanho() == 0) {
+            System.out.println("Lista vazia, impossível somar os elementos");  
+        } else {
+            No atual = inicio;
+            int soma = 0;
+            while (atual != null) {
+                if (atual.valor % 2 == 0) {
+                    soma = soma + atual.valor;
+                }
+                atual = atual.proximo;
+            }
+            System.out.println("A soma dos elementos pares da lista é: " + soma);
+        }
+    }
+
+    public void somarPares(int num) {
+            
+        if (Tamanho() == 0) {
+            System.out.println("Lista vazia, impossível somar os elementos");  
+        } else {
+            No atual = inicio;
+            int soma = 0;
+            while (atual != null) {
+                if (atual.valor % 2 == 0 && atual.valor > num) {
+                    soma = soma + atual.valor;
+                }
+                atual = atual.proximo;
+            }
+            System.out.println("A soma dos elementos pares da lista maiores que " + num + " é " + soma);
+        }
+    }
+
+    public void seRepete(int valor) {
+        if (Tamanho() == 0) {
+            System.out.println("Lista vazia! Nenhum elemento!");
+        } else {
+            No atual = inicio;
+            int qElem = 0;
+
+            while (atual != null) {
+                if (atual.valor == valor) {
+                    qElem++;
+                }
+                atual = atual.proximo;
+            }
+
+            System.out.println("O elemento " + valor + " se repete " + qElem + " vezes");
+        }
+    }
+
+    public boolean estaNaLista (int elemento) {
+        if (Tamanho() == 0) {
+            return false;
+        } else {
+            No atual = inicio;
+            boolean aux = false;
+
+            while (atual != null) {
+                if (atual.valor == elemento) {
+                    aux = true;
+                }
+                atual = atual.proximo;
+            }
+            
+            return aux;
+        }
+    }
+
+    public void insereDepoisDe(int elemento, int valor) {
+        No novoValor = new No();
+        novoValor.valor = valor;
+        if (estaNaLista(elemento)) {
+            No atual = inicio;
+            while (atual != null) {
+                if (atual.valor == elemento) {
+                    novoValor.proximo = atual.proximo;
+                    atual.proximo = novoValor;
+                    break;
+                }
+                atual = atual.proximo;
+            }
+        } else {
+            System.out.println("Este elemento não está na lista");
+        }
+    }

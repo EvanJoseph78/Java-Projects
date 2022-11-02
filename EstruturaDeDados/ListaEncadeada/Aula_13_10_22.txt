@@ -1,0 +1,24 @@
+Lista por encadeamento
+- no vetor um elemento tem que estar jundo do outro
+- na lisa encadeada não precisa, mas o elemento precisa estar ligado ao próximo
+- Há dois tipos possíveis de representação de listas lineares:
+Por contiguidade (Lista estática):
+    - Garantia da precedência dos elementos pela contiguidade física na memória usando arranjos;
+Por Encadeamento (Lista dinâmica)
+    - Garantia da precedência dos elementos pelo seu encadeamento (contiguidade lógica) usando-se apontadores.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
