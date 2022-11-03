@@ -1,33 +1,41 @@
 import java.io.DataInputStream;
+import java.io.DataOutputStream;
 import java.io.IOException;
+import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.nio.charset.StandardCharsets;
 
 public class Servidor {
-	
-	public void inciarServidor() {
-		while(true) {
-	        try (ServerSocket servidor = new ServerSocket(5555)) {
-	            String msg="";
-	            System.out.println("Aguardando conexão"); 
-	            Socket client = servidor.accept(); //Aguarda a conexão do socket
-	            DataInputStream is = new DataInputStream(client.getInputStream());
-	            msg = new String(is.readAllBytes(), StandardCharsets.UTF_8);
-	            System.out.println("\n\n-----Mensagem Recebida-----\n\n"+msg);
-	
-	            is.close();
-	            client.close(); 
-	
-	        }catch(IOException e) {
-	            e.printStackTrace();
-	
-	        }
-    }
-	}
 
-	public static void main(String[] args) throws Exception {
-		Servidor servidor = new Servidor();  // cria um novo servidor
-		servidor.inciarServidor();
-	}
+
+    public static void main(String[] args) throws IOException {
+        // Define o servidor socket (abre uma porta de conexão)
+        while(true){
+
+            ServerSocket serverSocket = new ServerSocket(5555);
+            System.out.println("Esperando conexão...");
+    
+            // aguarda a conexão do cliente
+            Socket cliente = serverSocket.accept();
+    
+            //lê a mensagem mandada pelo cliente
+    
+            DataInputStream entrada = new DataInputStream(cliente.getInputStream());
+            String mensagem = entrada.readUTF();
+
+            Socket enviar = new Socket(InetAddress.getLocalHost(), 8080);
+
+            DataOutputStream saida = new DataOutputStream(enviar.getOutputStream());
+
+            saida.writeUTF(mensagem);
+
+            System.out.println(mensagem);
+    
+            entrada.close();
+            cliente.close();
+            serverSocket.close();
+        }
+        
+    }
+    
 }
