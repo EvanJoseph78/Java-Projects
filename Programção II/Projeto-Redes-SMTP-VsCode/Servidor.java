@@ -31,6 +31,7 @@ public class Servidor {
             saida.writeUTF(mensagem);
 
             System.out.println("Criptografia de ponta a ponta!");
+            System.out.println("Mensagem encaminhada para a caixa de mensagem");
             
             //fechas as variáveis
             entrada.close();

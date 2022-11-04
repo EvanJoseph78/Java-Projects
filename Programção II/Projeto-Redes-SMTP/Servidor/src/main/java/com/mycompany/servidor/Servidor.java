@@ -1,12 +1,13 @@
+
+package com.mycompany.servidor;
+
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
-
 public class Servidor {
-
 
     public static void main(String[] args) throws IOException {
         // Define o servidor socket (abre uma porta de conexão)
@@ -31,6 +32,7 @@ public class Servidor {
             saida.writeUTF(mensagem);
 
             System.out.println("Criptografia de ponta a ponta!");
+            System.out.println("Mensagem encaminhada para a caixa de mensagem");
             
             //fechas as variáveis
             entrada.close();
@@ -39,5 +41,4 @@ public class Servidor {
         }
         
     }
-    
 }

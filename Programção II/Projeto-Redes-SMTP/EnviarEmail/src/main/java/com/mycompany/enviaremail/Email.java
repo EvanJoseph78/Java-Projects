@@ -1,3 +1,6 @@
+
+package com.mycompany.enviaremail;
+
 import java.util.Date;
 
 public class Email {

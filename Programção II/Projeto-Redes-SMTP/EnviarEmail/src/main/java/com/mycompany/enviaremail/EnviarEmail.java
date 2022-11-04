@@ -1,3 +1,6 @@
+
+package com.mycompany.enviaremail;
+
 import java.io.DataOutputStream;  // mandar mensagem pro servidor
 import java.io.IOException;  // tratamento de exeções
 import java.net.InetAddress;  // pega o ip da máquina
@@ -5,7 +8,6 @@ import java.net.Socket;  // conexção cliente-servidor
 import java.net.UnknownHostException;
 import java.util.Date;  // retorna a data atual da máquina em String
 import java.util.Scanner;
-
 public class EnviarEmail {
 
     public static void main(String[] args) throws UnknownHostException, IOException {
@@ -49,6 +51,4 @@ public class EnviarEmail {
         return mensagem.toString();
         
     }
-
-  
 }
